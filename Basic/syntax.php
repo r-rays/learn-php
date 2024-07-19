@@ -1,16 +1,21 @@
 <?php
 // Standart Output
-echo "Hello World!\n";
-print "Hello World!\n";
+echo "Hello World!<br>";
+print "Hello World!<br>";
+
+echo "<br>";
 
 // Array Value Output
-print_r([1, 2, "Hello", True, "\n"]);
+print_r([1, 2, "Hello", True]);
+
+echo "<br>";
+echo "<br>";
 
 // Debugging Output
 var_dump("Hello World!");
 
-nl2br("");
-nl2br("");
+echo "<br>";
+echo "<br>";
 
 // Variable
 $name = "Rieky Rayson";
@@ -33,8 +38,8 @@ $name = "Rieky Rayson";
 </html>
 
 <?php
-nl2br("");
-nl2br("");
+echo "<br>";
+echo "<br>";
 
 // Operator
 $x = 10;
@@ -46,14 +51,17 @@ echo $x / $y;
 echo $x * $y;
 echo $x % $y;
 
-nl2br("");
-nl2br("");
+echo "<br>";
+echo "<br>";
 
 // Contatenation
 $first_name = "Rieky";
 $last_name = "Rayson";
 
 echo "Halo, nama saya" . $first_name . " " . $last_name;
+
+echo "<br>";
+echo "<br>";
 
 // Assignment
 // =, +=, -=, *=, /=, %=, .=
@@ -69,9 +77,15 @@ $name .= "Rayson";
 // <, >, <=, >=, ==
 var_dump(1 == 5);
 
+echo "<br>";
+echo "<br>";
+
 // Identitas
 // ===, !==
 var_dump(1 !== "5");
+
+echo "<br>";
+echo "<br>";
 
 // Logika
 // &&, ||, !
