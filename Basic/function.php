@@ -54,7 +54,7 @@ function salam($waktu = "Datang", $nama = "Admin")
 </head>
 
 <body>
-    <h1><?= salam("Rieky"); ?></h1>
+    <h1><?= salam("Pagi", "Rieky"); ?></h1>
 </body>
 
 </html>
