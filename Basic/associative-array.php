@@ -2,13 +2,13 @@
 $mahasiswa = [
     [
         "nama" => "Rieky Rayson",
-        "nrp" => "3505171511040003",
+        "nrp" => "123456789",
         "jurusan" => "Rekayasa Perangkat Lunak",
         "email" => "r.rayyysss@gmail.com"
     ],
     [
         "nama" => "Fitaria Gustina",
-        "nrp" => "3505171511040003",
+        "nrp" => "123456789",
         "jurusan" => "Manajemen",
         "email" => "greenfithea@gmail.com"
     ]
