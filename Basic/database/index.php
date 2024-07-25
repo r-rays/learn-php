@@ -1,7 +1,7 @@
 <?php
 require 'model.php';
 
-$mahasiswa = query("SELECT * FROM mahasiswa");
+$mahasiswa = read("SELECT * FROM mahasiswa");
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +11,29 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database 2</title>
+    <style>
+        .create {
+            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .create:hover {
+            background-color: skyblue;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Daftar Mahasiswa</h1>
-
-    <table border="1" cellpadding="10" cellspacing="0">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 100px;">
+        <h1>Daftar Mahasiswa</h1>
+        <a href="create.php"><button type="button" class="create">Tambah</button></a>
+    </div>
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
         <tr>
             <th>No.</th>
             <th>Nama</th>
@@ -29,13 +46,13 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <?php foreach ($mahasiswa as $row) : ?>
             <tr>
                 <td><?= $i; ?></td>
-                <td><?= $row["nama"]; ?></td>
                 <td><?= $row["nrp"]; ?></td>
+                <td><?= $row["nama"]; ?></td>
                 <td><?= $row["jurusan"]; ?></td>
                 <td><?= $row["email"]; ?></td>
                 <td>
                     <a href="">Ubah</a> |
-                    <a href="">Hapus</a>
+                    <a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                 </td>
             </tr>
             <?php $i++; ?>
