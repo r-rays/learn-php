@@ -51,7 +51,7 @@ $mahasiswa = read("SELECT * FROM mahasiswa");
                 <td><?= $row["jurusan"]; ?></td>
                 <td><?= $row["email"]; ?></td>
                 <td>
-                    <a href="">Ubah</a> |
+                    <a href="edit.php?id=<?= $row['id']; ?>">Ubah</a> |
                     <a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                 </td>
             </tr>

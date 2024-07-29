@@ -33,6 +33,29 @@ function create($data)
     return mysqli_affected_rows($conn);
 }
 
+function update($data)
+{
+    global $conn;
+
+    $id = $data["id"];
+    $nama = htmlspecialchars($data["nama"]);
+    $nrp = htmlspecialchars($data["nrp"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $email = htmlspecialchars($data["email"]);
+
+    $query = "UPDATE mahasiswa SET
+            nama = '$nama',
+            nrp = '$nrp',
+            jurusan = '$jurusan',
+            email = '$email'
+        WHERE id = $id
+    ";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
 function delete($id)
 {
     global $conn;
