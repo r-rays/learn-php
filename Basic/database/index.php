@@ -1,7 +1,11 @@
 <?php
 require 'model.php';
 
-$mahasiswa = read("SELECT * FROM mahasiswa");
+if (isset($_GET["search"])) {
+    $mahasiswa = search($_GET["keyword"]);
+} else {
+    $mahasiswa = read("SELECT * FROM mahasiswa");
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +37,13 @@ $mahasiswa = read("SELECT * FROM mahasiswa");
         <h1>Daftar Mahasiswa</h1>
         <a href="create.php"><button type="button" class="create">Tambah</button></a>
     </div>
+
+    <form action="" method="get">
+        <input type="text" name="keyword" id="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
+        <button type="submit" name="search">Cari!</button>
+    </form>
+    <br>
+
     <table border="1" cellpadding="10" cellspacing="0" width="100%">
         <tr>
             <th>No.</th>
