@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['login'])) {
+    header('Location: login.php');
+    exit;
+}
+
 require 'model.php';
 
 if (isset($_GET["search"])) {
@@ -33,6 +39,7 @@ if (isset($_GET["search"])) {
 </head>
 
 <body>
+    <a href="logout.php">Logout</a>
     <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 100px;">
         <h1>Daftar Mahasiswa</h1>
         <a href="create.php"><button type="button" class="create">Tambah</button></a>
