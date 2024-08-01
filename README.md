@@ -1,1 +1,1 @@
-Self Learning using PHP Programming Language with mentor, Sandhika Galih.
+Self Learning using PHP Programming Language with Mentor, Sandhika Galih.
