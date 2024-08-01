@@ -25,7 +25,7 @@ $mahasiswa = read("SELECT * FROM mahasiswa LIMIT $firstData, $amountDataPerPage"
 
 if (isset($_GET["search"])) {
     $mahasiswa = search($_GET["keyword"]);
-    unset($_GET);
+    unset($_GET['page']);
 }
 ?>
 
