@@ -7,10 +7,25 @@ if (!isset($_SESSION['login'])) {
 
 require 'model.php';
 
+$amountDataPerPage = 5;
+$amountData = count(read("SELECT * FROM mahasiswa"));
+$amountPage = ceil($amountData / $amountDataPerPage);
+
+// if (isset($_GET['page'])) {
+//     $activePage = $_GET['page'];
+// } else {
+//     $activePage = 1;
+// }
+
+$activePage = (isset($_GET['page'])) ? $_GET['page'] : 1;
+
+$firstData = ($amountDataPerPage * $activePage) - $amountData;
+
+$mahasiswa = read("SELECT * FROM mahasiswa LIMIT $firstData, $amountDataPerPage");
+
 if (isset($_GET["search"])) {
     $mahasiswa = search($_GET["keyword"]);
-} else {
-    $mahasiswa = read("SELECT * FROM mahasiswa");
+    unset($_GET);
 }
 ?>
 
@@ -49,6 +64,19 @@ if (isset($_GET["search"])) {
         <input type="text" name="keyword" id="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
         <button type="submit" name="search">Cari!</button>
     </form>
+
+    <br>
+
+    <?php if ($activePage > 1) : ?>
+        <a href="?page=<?= $activePage - 1; ?>">&lt;</a>
+    <?php endif; ?>
+    <?php for ($i = 1; $i <= $amountPage; $i++) : ?>
+        <a href="?page=<?= $i; ?>" style="<?= ($i === $activePage) ? 'font-weight: bold;' : ''; ?>"><?= $i; ?></a>
+    <?php endfor; ?>
+    <?php if ($activePage < $amountPage) : ?>
+        <a href="?page=<?= $activePage + 1; ?>">&gt;</a>
+    <?php endif; ?>
+
     <br>
 
     <table border="1" cellpadding="10" cellspacing="0" width="100%">
