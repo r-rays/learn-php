@@ -50,17 +50,27 @@ if (isset($_GET["search"])) {
         .create:hover {
             background-color: skyblue;
         }
+
+        @media print {
+
+            .logout,
+            .create,
+            .search-form,
+            .action {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <a href="logout.php">Logout</a>
+    <a href="logout.php" class="logout">Logout</a> | <a href="print.php" target="_blank">Print</a>
     <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 100px;">
         <h1>Daftar Mahasiswa</h1>
         <a href="create.php"><button type="button" class="create">Tambah</button></a>
     </div>
 
-    <form action="" method="get">
+    <form action="" method="get" class="search-form">
         <input type="text" name="keyword" id="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
         <button type="submit" name="search">Cari!</button>
     </form>
@@ -86,7 +96,7 @@ if (isset($_GET["search"])) {
             <th>NRP</th>
             <th>Jurusan</th>
             <th>Email</th>
-            <th>Aksi</th>
+            <th class="action">Aksi</th>
         </tr>
         <?php $i = 1; ?>
         <?php foreach ($mahasiswa as $row) : ?>
@@ -96,7 +106,7 @@ if (isset($_GET["search"])) {
                 <td><?= $row["nama"]; ?></td>
                 <td><?= $row["jurusan"]; ?></td>
                 <td><?= $row["email"]; ?></td>
-                <td>
+                <td class="action">
                     <a href="edit.php?id=<?= $row['id']; ?>">Ubah</a> |
                     <a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                 </td>
