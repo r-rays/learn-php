@@ -4,22 +4,34 @@ class Produk
     // Property
     public $judul,
         $penulis,
-        $penerbit,
-        $harga;
+        $penerbit;
+
+    private $harga, $diskon;
 
     // Constructor
-    public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0)
+    public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $diskon = 0)
     {
         $this->judul = $judul;
         $this->penulis = $penulis;
         $this->penerbit = $penerbit;
         $this->harga = $harga;
+        $this->diskon = $diskon;
     }
 
     // method
     public function sayHello()
     {
         return "Hello World!";
+    }
+
+    public function setDiskon($diskon)
+    {
+        $this->diskon = $diskon;
+    }
+
+    public function getHarga()
+    {
+        return $this->harga - ($this->harga * $this->diskon / 100);
     }
 
     public function getLabel()
@@ -77,3 +89,15 @@ echo "<br>";
 echo $komik->getInfoProduk();
 echo "<br>";
 echo $game->getInfoProduk();
+
+echo "<br>";
+echo "<br>";
+
+echo "<hr>";
+
+echo "<br>";
+
+// $game->harga = 0;
+// echo $game->harga;
+
+echo $game->getHarga();
