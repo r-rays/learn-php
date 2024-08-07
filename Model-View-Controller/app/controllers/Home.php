@@ -1,8 +1,11 @@
 <?php
-class Home
+class Home extends Controller
 {
-    public function index($nama = "Rieky", $pekerjaan = "Programmer")
+    public function index()
     {
-        echo "Halo, nama saya {$nama} dan saya adalah seorang {$pekerjaan}.";
+        $data["title"] = "Home";
+        $this->view('partials/header', $data);
+        $this->view('home/index', $data);
+        $this->view('partials/footer', $data);
     }
 }
