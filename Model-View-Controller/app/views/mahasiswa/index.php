@@ -3,14 +3,14 @@
         <div class="col-6">
             <h3>Daftar Mahasiswa</h3>
 
-            <?php foreach ($data["mahasiswa"] as $mhs) : ?>
-                <ul>
-                    <li><?= $mhs["nama"]; ?></li>
-                    <li><?= $mhs["nrp"]; ?></li>
-                    <li><?= $mhs["jurusan"]; ?></li>
-                    <li><?= $mhs["email"]; ?></li>
-                </ul>
-            <?php endforeach; ?>
+            <ul class="list-group">
+                <?php foreach ($data["mahasiswa"] as $mhs) : ?>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        <?= $mhs["nama"]; ?>
+                        <a href="<?= baseURL; ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-bg-primary">Detail</a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
     </div>
 </div>
