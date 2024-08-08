@@ -18,4 +18,12 @@ class Mahasiswa extends Controller
         $this->view('mahasiswa/detail', $data);
         $this->view('partials/footer', $data);
     }
+
+    public function create()
+    {
+        if ($this->model('Mahasiswa_model')->createMahasiswa($_POST) > 0) {
+            header('Location: ' . baseURL . '/mahasiswa');
+            exit;
+        }
+    }
 }
