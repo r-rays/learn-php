@@ -5,8 +5,13 @@
             Tambah
         </button>
     </div>
-    <div class="row mt-3">
-        <div class="col-6">
+    <div class="row mt-3 mb-3">
+        <div class="col">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
 
             <ul class="list-group">
                 <?php foreach ($data["mahasiswa"] as $mhs) : ?>
