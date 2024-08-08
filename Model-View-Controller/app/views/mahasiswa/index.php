@@ -17,7 +17,10 @@
                 <?php foreach ($data["mahasiswa"] as $mhs) : ?>
                     <li class="list-group-item d-flex align-items-center justify-content-between">
                         <?= $mhs["nama"]; ?>
-                        <a href="<?= baseURL; ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-bg-primary">Detail</a>
+                        <div class="action">
+                            <a href="<?= baseURL; ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-bg-primary">Detail</a>
+                            <a href="<?= baseURL; ?>/mahasiswa/delete/<?= $mhs["id"]; ?>" class="badge text-bg-danger" id="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -36,15 +39,15 @@
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" name="nama" id="nama">
+                        <input type="text" class="form-control" name="nama" id="nama" required>
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="nrp" class="form-label">NRP</label>
-                        <input type="number" class="form-control" name="nrp" id="nrp">
+                        <input type="number" class="form-control" name="nrp" id="nrp" required>
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="jurusan">Jurusan</label>
-                        <select class="form-select" name="jurusan" id="jurusan">
+                        <select class="form-select" name="jurusan" id="jurusan" required>
                             <option selected disabled>Piih Jurusan</option>
                             <option value="Teknik Permesinan">Teknik Permesinan</option>
                             <option value="Teknik Kendaraan Ringan dan Otomotif">Teknik Kendaraan Ringan dan Otomotif</option>
@@ -58,7 +61,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="email">
+                        <input type="email" class="form-control" name="email" id="email" required>
                     </div>
                 </div>
                 <div class="modal-footer">

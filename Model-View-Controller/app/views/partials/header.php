@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $data["title"]; ?></title>
     <link rel="stylesheet" href="<?= baseURL; ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= baseURL; ?>/css/sweetalert2.css">
     <style>
         a,
         a:hover {
