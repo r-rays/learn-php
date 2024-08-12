@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="d-flex align-items-center justify-content-between">
         <h3>Daftar Mahasiswa</h3>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal" id="create-btn">
             Tambah
         </button>
     </div>
@@ -18,8 +18,9 @@
                     <li class="list-group-item d-flex align-items-center justify-content-between">
                         <?= $mhs["nama"]; ?>
                         <div class="action">
-                            <a href="<?= baseURL; ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-bg-primary">Detail</a>
-                            <a href="<?= baseURL; ?>/mahasiswa/delete/<?= $mhs["id"]; ?>" class="badge text-bg-danger" id="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
+                            <a href="<?= baseURL; ?>/mahasiswa/detail/<?= $mhs["id"]; ?>" class="badge text-light text-bg-primary">Detail</a>
+                            <a href="<?= baseURL; ?>/mahasiswa/edit/<?= $mhs["id"]; ?>" class="badge text-light text-bg-warning" id="edit-btn" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs["id"]; ?>">Edit</a>
+                            <a href="<?= baseURL; ?>/mahasiswa/delete/<?= $mhs["id"]; ?>" class="badge text-light text-bg-danger" id="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                         </div>
                     </li>
                 <?php endforeach; ?>
@@ -28,12 +29,13 @@
     </div>
 </div>
 
-<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="<?= baseURL; ?>/mahasiswa/create" method="post">
+                <input type="hidden" name="id" id="id">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalTitle">Tambah Data Mahasiswa</h1>
+                    <h1 class="modal-title fs-5" id="modalTitle"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -48,7 +50,7 @@
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="jurusan">Jurusan</label>
                         <select class="form-select" name="jurusan" id="jurusan" required>
-                            <option selected disabled>Piih Jurusan</option>
+                            <option selected disabled>Pilih Jurusan</option>
                             <option value="Teknik Permesinan">Teknik Permesinan</option>
                             <option value="Teknik Kendaraan Ringan dan Otomotif">Teknik Kendaraan Ringan dan Otomotif</option>
                             <option value="Teknik Instalasi Tenaga Listrik">Teknik Instalasi Tenaga Listrik</option>
@@ -66,7 +68,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                    <button type="submit" class="btn btn-primary"></button>
                 </div>
             </form>
         </div>

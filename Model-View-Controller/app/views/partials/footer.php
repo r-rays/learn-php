@@ -1,7 +1,8 @@
 <script src="<?= baseURL; ?>/js/jquery-3.7.1.js"></script>
 <script src="<?= baseURL; ?>/js/bootstrap.bundle.js"></script>
 <script src="<?= baseURL; ?>/js/sweetalert2.all.js"></script>
-<script>
+<script src="<?= baseURL; ?>/js/script.js"></script>
+<!-- <script>
     import Swal from "<?= baseURL; ?>/js/sweetalert2.all.js";
     import "<?= baseURL; ?>/css/sweetalert2.css";
 
@@ -25,7 +26,7 @@
             }
         });
     });
-</script>
+</script> -->
 </body>
 
 </html>
