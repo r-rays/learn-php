@@ -22,6 +22,17 @@ class Mahasiswa_model
         return $this->db->single();
     }
 
+    public function searchMahasiswa()
+    {
+        $keyword = $_POST["search"];
+        $query = "SELECT * FROM mahasiswa WHERE nama LIKE :keyword";
+
+        $this->db->query($query);
+        $this->db->bind("keyword", "%$keyword%");
+
+        return $this->db->resultSet();
+    }
+
     public function createMahasiswa($data)
     {
         $query = "INSERT INTO mahasiswa (nama, nrp, jurusan, email) VALUES 

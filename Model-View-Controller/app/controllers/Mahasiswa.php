@@ -10,6 +10,15 @@ class Mahasiswa extends Controller
         $this->view('partials/footer', $data);
     }
 
+    public function search()
+    {
+        $data["title"] = 'Mahasiswa';
+        $data["mahasiswa"] = $this->model('Mahasiswa_model')->searchMahasiswa();
+        $this->view('partials/header', $data);
+        $this->view('mahasiswa/index', $data);
+        $this->view('partials/footer', $data);
+    }
+
     public function detail($id)
     {
         $data["title"] = 'Detail Mahasiswa';

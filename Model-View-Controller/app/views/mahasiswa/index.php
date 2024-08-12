@@ -10,6 +10,16 @@
             <?php Flasher::flash(); ?>
         </div>
     </div>
+    <div class="row mb-2">
+        <div class="col-6">
+            <form action="<?= baseURL; ?>/mahasiswa/search" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Cari..." name="search" id="search" aria-describedby="search" autocomplete="off">
+                    <button class="btn btn-primary" type="submit" id="search">Button</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-6">
 
